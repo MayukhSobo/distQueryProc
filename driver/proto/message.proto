@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+message FileRequest {
+    string base_path = 1;   // The base path of the files
+    string file_list = 2;   // A list of file names (not paths)
+}
+
+message YearlyResult {
+    int32 year = 1;           // The year of the results
+    int32 min_score = 2;      // Minimum score for that year
+    int32 max_score = 3;      // Maximum score for that year
+    int64 sum_score = 4;      // Sum of scores (changed to int64 for large values)
+    int64 count = 5;          // Total number of scores (changed to int64 for large values)
+}
+
+message FileResponse {
+    repeated YearlyResult yearly_results = 1;  // List of results per year
+}
